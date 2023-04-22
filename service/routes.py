@@ -9,6 +9,7 @@ from service.models import Account
 from service.common import status  # HTTP Status Codes
 from . import app  # Import Flask application
 
+
 ############################################################
 # Health Endpoint
 ############################################################
@@ -71,7 +72,7 @@ def list_accounts():
     accounts = Account.all()
     # create a list of serialize() accounts
     account_list = [account.serialize() for account in accounts]
-    # log the number of accounts being returned in the list 
+    # log the number of accounts being returned in the list
     app.logger.info("Returning [%s] accounts", len(account_list))
     # return the list with a return code of status.HTTP_200_OK
     return jsonify(account_list), status.HTTP_200_OK
